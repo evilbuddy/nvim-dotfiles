@@ -25,14 +25,6 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
 	spec = {
 		{
-			"catppuccin/nvim",
-			name = "catppuccin",
-			priority = 1000,
-			config = function()
-				vim.cmd.colorscheme "catppuccin-mocha"
-			end
-		},
-		{
 			"nvimdev/dashboard-nvim",
 			event = "VimEnter",
 			config = function()
@@ -53,10 +45,16 @@ require("lazy").setup({
 			dependencies = { {"nvim-tree/nvim-web-devicons"}}
 		},
 		{
-			"itchyny/lightline.vim",
-			lazy = false,
+			"nvim-lualine/lualine.nvim",
+			dependencies = { "nvitree/nvim-web-devicons" },
 			config = function()
-				vim.g.lightline = { colorscheme = "catppuccin" }
+				require("lualine").setup()
+			end
+		},
+		{
+			"xiyaowong/transparent.nvim",
+			config = function()
+				require("transparent").setup()
 			end
 		},
 		{
@@ -67,6 +65,10 @@ require("lazy").setup({
 				"MunifTanjim/nui.nvim"
 			},
 			lazy = false,
+		},
+		{
+			"neoclide/coc.nvim",
+			branch = "release"
 		},
 		{
 			"Civitasv/cmake-tools.nvim",
@@ -87,16 +89,13 @@ require("lazy").setup({
 			end
 		},
 		{
-			"github/copilot.vim"
-		},
-		{
 			"kdheepak/lazygit.nvim"
 		}
 
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "catppuccin-mocha" } },
+	install = { colorscheme = { "default" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
 })
