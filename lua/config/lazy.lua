@@ -46,16 +46,10 @@ require("lazy").setup({
 		},
 		{
 			"nvim-lualine/lualine.nvim",
-			dependencies = { "nvitree/nvim-web-devicons" },
-			config = function()
-				require("lualine").setup()
-			end
+			dependencies = { "nvitree/nvim-web-devicons" }
 		},
 		{
-			"xiyaowong/transparent.nvim",
-			config = function()
-				require("transparent").setup()
-			end
+			"xiyaowong/transparent.nvim"
 		},
 		{
 			"nvim-neo-tree/neo-tree.nvim",
@@ -64,7 +58,7 @@ require("lazy").setup({
 				"nvim-tree/nvim-web-devicons",
 				"MunifTanjim/nui.nvim"
 			},
-			lazy = false,
+			lazy = false
 		},
 		{
 			"neoclide/coc.nvim",
