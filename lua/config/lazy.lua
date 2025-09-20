@@ -84,6 +84,9 @@ require("lazy").setup({
 		},
 		{
 			"kdheepak/lazygit.nvim"
+		},
+		{
+			"andweeb/presence.nvim"
 		}
 
 	},
