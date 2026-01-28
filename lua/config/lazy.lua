@@ -28,7 +28,7 @@ require("lazy").setup({
 			"nvimdev/dashboard-nvim",
 			event = "VimEnter",
 			config = function()
-				require("dashboard").setup {
+				require("dashboard").setup({
 					theme = "hyper",
 					config = {
 						header = {
@@ -37,58 +37,85 @@ require("lazy").setup({
 							"██╔██╗ ██║██║   ██║██║██╔████╔██║",
 							"██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║",
 							"██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║",
-							"╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝"
-						}
-					}
-				}
+							"╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
+						},
+					},
+				})
 			end,
-			dependencies = { {"nvim-tree/nvim-web-devicons"}}
+			dependencies = { { "nvim-tree/nvim-web-devicons" } },
 		},
 		{
 			"nvim-lualine/lualine.nvim",
-			dependencies = { "nvitree/nvim-web-devicons" }
+			dependencies = { "nvitree/nvim-web-devicons" },
 		},
 		{
-			"xiyaowong/transparent.nvim"
+			"xiyaowong/transparent.nvim",
 		},
 		{
 			"nvim-neo-tree/neo-tree.nvim",
 			dependencies = {
 				"nvim-lua/plenary.nvim",
 				"nvim-tree/nvim-web-devicons",
-				"MunifTanjim/nui.nvim"
+				"MunifTanjim/nui.nvim",
 			},
-			lazy = false
+			lazy = false,
 		},
 		{
 			"neoclide/coc.nvim",
-			branch = "release"
+			branch = "release",
 		},
 		{
 			"Civitasv/cmake-tools.nvim",
 			dependencies = {
-				"nvim-lua/plenary.nvim"
-			}
+				"nvim-lua/plenary.nvim",
+			},
 		},
 		{
-			"rust-lang/rust.vim"
+			"rust-lang/rust.vim",
 		},
 		{
-			"preservim/tagbar"
+			"preservim/tagbar",
 		},
 		{
 			"mbbill/undotree",
 			config = function()
 				vim.keymap.set("n", "<F5>", vim.cmd.UndotreeToggle)
-			end
+			end,
 		},
 		{
-			"kdheepak/lazygit.nvim"
+			"kdheepak/lazygit.nvim",
 		},
 		{
-			"andweeb/presence.nvim"
-		}
-
+			"andweeb/presence.nvim",
+		},
+		{
+			"stevearc/conform.nvim",
+			keys = {
+				{
+					"F",
+					function()
+						require("conform").format({ async = true, lsp_fallback = true })
+					end,
+					mode = "",
+					desc = "Format buffer",
+				},
+			},
+			opts = {
+				formatters_by_ft = {
+					cpp = { "clang-format" },
+					c = { "clang-format" },
+					python = { "black" },
+					rust = { "rustfmt" },
+					html = { "prettier" },
+					css = { "prettier" },
+					javascript = { "prettier" },
+					json = { "prettier" },
+					sh = { "shfmt" },
+					lua = { "stylua" },
+				},
+				format_on_save = false,
+			},
+		},
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
