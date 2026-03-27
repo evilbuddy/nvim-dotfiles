@@ -37,7 +37,7 @@ require("lazy").setup({
 							"██╔██╗ ██║██║   ██║██║██╔████╔██║",
 							"██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║",
 							"██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║",
-							"╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
+							"╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝	 ╚═╝",
 						},
 					},
 				})
@@ -106,6 +106,7 @@ require("lazy").setup({
 					c = { "clang-format" },
 					python = { "black" },
 					rust = { "rustfmt" },
+					php = { "pretty-php" },
 					html = { "prettier" },
 					css = { "prettier" },
 					javascript = { "prettier" },
@@ -116,6 +117,12 @@ require("lazy").setup({
 				format_on_save = false,
 			},
 		},
+		{
+			"shrynx/line-numbers.nvim",
+			opts = {
+				mode = "absolute"
+			},
+		}
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
